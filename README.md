@@ -6,6 +6,11 @@ This allows developers to swap out/side-load resources without having to re-buil
 
 The supplied base path of the substitution bundle should mirror the structure of a standard application bundle. (Currently, only iOS-style bundles have been tested.)
 
+## Warning:
+NSBundle+ProxyBundle is intended for use as a developer tool and should not be included in production builds under any circumstances!! To achieve its goal, NSBundle+ProxyBundle makes use of method swizzling of Foundation classes and should be considered extremely fragile.
+
+I recommend using the pre-processor to exclude the invocation of NSBundle+ProxyBundle methods from non-development builds and would suggest not including NSBundle+ProxyBundle.m in your production targets.
+
 ## Usage:
 Include NSBundle+ProxyBundle.h in your application delegate's implementation file and set a substitution bundle:
 
